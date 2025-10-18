@@ -1,13 +1,61 @@
-# SQL Sales & Customer Analytics
+# 🧩 Project: Customer Sales Analytics (SQL Portfolio Project)
 
-This project demonstrates SQL-based analysis of sales trends, customer segmentation, and key performance metrics.
+## 📘 Overview
+This SQL-based analytics project focuses on **understanding customer behavior** through data-driven insights.  
+Using raw sales and customer data, I designed a reusable analytical model that classifies customers into segments such as **VIP**, **Regular**, and **New**, while also calculating key metrics like **average order value**, **monthly spend**, and **customer lifespan**.
 
-## Features
-- Analyze sales performance over time (yearly/monthly)
-- Customer segmentation: VIP, Regular, New
-- Product segmentation by cost
-- Cumulative sales and moving averages
-- Calculation of key KPIs: recency, average order value, monthly spend
+---
 
-## Files
-- `SQLQuery1.sql` – All SQL queries for the project
+## 🎯 Project Goals
+- Analyze customer purchasing frequency, monetary value, and activity span.  
+- Build a **data model** using joins between fact and dimension tables.  
+- Segment customers based on **spending and retention behavior**.  
+- Create a **SQL view** (`report_customers`) for easy dashboard integration.  
+- Demonstrate advanced SQL techniques for real-world analytics.
+
+---
+
+## 🧠 Key SQL Techniques
+- **Common Table Expressions (CTEs)** for modular query design  
+- **Aggregation functions:** `SUM`, `COUNT`, `MAX`, `MIN`, `AVG`  
+- **Conditional logic:** `CASE WHEN` for segment and age grouping  
+- **Date functions:** `DATEDIFF`, `GETDATE()` for recency and lifespan analysis  
+- **View creation:** `CREATE VIEW` for long-term data accessibility  
+
+---
+
+## 📊 Metrics & KPIs Calculated
+
+| Metric | Description |
+|--------|--------------|
+| **Total Orders** | Count of unique orders per customer |
+| **Total Sales** | Sum of all purchases made |
+| **Lifespan** | Time between first and last order |
+| **Recency** | Months since last order |
+| **Average Order Value (AOV)** | `Total Sales / Total Orders` |
+| **Average Monthly Spend** | `Total Sales / Lifespan` |
+| **Customer Segment** | Classified as *VIP*, *Regular*, or *New* |
+
+---
+
+## 📈 Business Insights
+- Identified high-value (VIP) customers who drive the majority of revenue.  
+- Highlighted new and inactive customers for re-engagement strategies.  
+- Provided age-based segmentation to align marketing efforts with demographics.  
+- Designed an analytical dataset ready for visualization in **Power BI / Tableau**.
+
+---
+
+## 🧭 How to Use This Project
+1. **Clone or download this repository** to your local system.  
+2. Open the SQL script (`SQLQuery1.sql`) in **SQL Server Management Studio (SSMS)** or any compatible SQL editor.  
+3. Ensure your database contains the following tables:  
+   - `gold.fact_sales`  
+   - `gold.dim_customers`  
+4. Run the script to create the **`report_customers`** view.  
+5. Once the view is created, you can query it directly or connect it to **Power BI** / **Tableau** for visualization.  
+
+💡 *Example Query:*  
+```sql
+SELECT * FROM gold.report_customers
+ORDER BY total_sales DESC;
